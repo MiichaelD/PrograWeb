@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0084)http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-cl" lang="es-cl" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ElBlog: Ejemplo oficial de RMI en Java</title>
+	
+	<meta name="Author" content="Oscar Fernández">
+	<meta http-equiv="Copyright" content="Oscar Fernández">
+	<link type="image/png" href="http://www.ooscarr.com/nerd/lib/img/favicon.png" rel="icon">
+	<link type="image/png" href="http://www.ooscarr.com/nerd/lib/img/favicon.png" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="./ElBlog  Ejemplo oficial de RMI en Java_files/nerd.css">
+	<link rel="stylesheet" type="text/css" href="./ElBlog  Ejemplo oficial de RMI en Java_files/style.css">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="generator" content="Blogger">
+	<meta name="mbl" content="0db65456b7c98140a4ac5683f33ddac7d36ab089">
+	<link rel="alternate" type="application/atom+xml" title="ElBlog (Atom)" href="http://feedproxy.google.com/ooscarr/nerd/elblog?format=atom">
+	<link rel="alternate" type="application/rss+xml" title="ElBlog (RSS)" href="http://feedproxy.google.com/ooscarr/nerd/elblog?format=rss">
+	<link rel="service.post" type="application/atom+xml" title="ElBlog (Atom)" href="http://www.blogger.com/feeds/6465577696340041904/posts/default">
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=6465577696340041904">
+	<link rel="stylesheet" type="text/css" href="./ElBlog  Ejemplo oficial de RMI en Java_files/blog_controls.css">
+	<link rel="stylesheet" type="text/css" href="./ElBlog  Ejemplo oficial de RMI en Java_files/authorization.css">
+	<!--<script type="text/javascript" src="http://www.blogger.com/js/backlink.js"></script>
+	<script type="text/javascript" src="http://www.blogger.com/js/backlink_control.js"></script>-->
+	<script type="text/javascript"><!--//--><![CDATA[//><!--
+		var BL_backlinkURL = "http://www.blogger.com/dyn-js/backlink_count.js";var BL_blogId = "6465577696340041904";
+	//--><!]]></script>
+	<!--[if lt IE 8]>
+	<script type="text/javascript" src="/nerd/elblog/lib/js/supersleight/imgie.js"></script>
+	<![endif]-->
+	<link rel="openid.server" href="http://draft.blogger.com/openid-server.g">
+	<link rel="openid.delegate" href="http://clubnintendomxpodcast.blogspot.com/">
+</head>
+<body>
+<div id="cabecera">
+	<div class="banner">
+		<script type="text/javascript"><!--//--><![CDATA[//><!--
+			google_ad_client = "pub-7448546992120998";
+			/* OOSCARR nerd cabecera */
+			google_ad_slot = "4880480097";
+			google_ad_width = 468;
+			google_ad_height = 60;
+		//--><!]]></script><script type="text/javascript" src="./ElBlog  Ejemplo oficial de RMI en Java_files/show_ads.js"></script><ins style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_0_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" frameborder="0" height="60" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+=&#39;.call&#39;;setTimeout(h,0)}else if(h.match){i+=&#39;.nav&#39;;w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" scrolling="no" vspace="0" width="468" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+		<noscript>&lt;div&gt;&lt;a href="http://www.mercadolibre.cl/jm/pms?site=213370&amp;amp;id=1593&amp;amp;go=CA" onclick="window.self.top.location=this.href;"&gt;&lt;img src="http://pms.mercadolibre.com/cgi/pms/ban?site=213370&amp;amp;id=1593" alt="MercadoLibre" /&gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+	</div>
+	<div class="menu">
+		<ul><li class="home"><a href="http://www.ooscarr.com/nerd/" rel="home" onclick="window.self.top.location=this.href;" title="OOSCARR nerd">Home</a></li><li class="elblog"><a href="http://www.ooscarr.com/nerd/elblog/">ElBlog</a></li></ul>
+	</div></div>
+
+<!-- Begin wrapper -->
+<div id="doc">
+<div id="header">
+	<div id="headerimg">
+		<h1><a href="http://www.ooscarr.com/nerd/elblog/" title="Portada de ElBlog"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/h1-anim.png" alt="ElBlog"></a></h1>
+		<!--<div class="description">de Oscar Fernández</div>-->
+	</div>
+</div>
+<!-- Begin content --><!-- Begin main column -->
+<div id="content"> 
+
+	
+
+		
+
+<div class="post" id="post-4176402842310147267">
+		<h2><a href="./ElBlog  Ejemplo oficial de RMI en Java_files/ElBlog  Ejemplo oficial de RMI en Java.htm" rel="bookmark" title="Link permanente">Ejemplo oficial de RMI en Java</a></h2>
+		<small>18.11.08. Por ooscarr (ooscarr)</small>
+		<div class="entry">
+			<div style="clear:both;"></div><p class="introduccion">Se me pidió implementar un ejemplo de comunicación <a href="http://es.wikipedia.org/wiki/RMI" rel="external"><acronym xml:lang="en-us" title="Remote Method Invocation">RMI</acronym></a> en Java para un curso de Sistemas distribuidos. Y como estaba en inglés, traduzco el ejemplo que encontré en tutorial de introducción oficial de Java™ <acronym xml:lang="en-us" title="Remote Method Invocation">RMI</acronym>. El famoso <strong xml:lang="en-us" title="Hola, mundo">Hello, world</strong></p>
+
+<h3>Los códigos</h3>
+<p>Lamentablemente, por la licencia, debo poner todos los comentarios iniciales correspondientes a los <span xml:lang="en-us">disclaimer</span>, así que por eso se ven largos los códigos.</p>
+<h4>Hola.java</h4>
+<pre><code>/*
+ * Copyright 2004 Sun Microsystems, Inc. All  Rights Reserved.
+ *  
+ * Redistribution and use in source and binary forms, with or 
+ * without modification, are permitted provided that the following 
+ * conditions are met:
+ * 
+ * -Redistributions of source code must retain the above copyright  
+ *  notice, this list of conditions and the following disclaimer.
+ * 
+ * -Redistribution in binary form must reproduce the above copyright 
+ *  notice, this list of conditions and the following disclaimer in 
+ *  the documentation and/or other materials provided with the 
+ *  distribution.
+ *  
+ * Neither the name of Sun Microsystems, Inc. or the names of 
+ * contributors may be used to endorse or promote products derived 
+ * from this software without specific prior written permission.
+ * 
+ * This software is provided "AS IS," without a warranty of any
+ * kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ * WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ * EXCLUDED. SUN MICROSYSTEMS, INC. ("SUN") AND ITS LICENSORS SHALL
+ * NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF
+ * USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS
+ * DERIVATIVES. IN NO EVENT WILL SUN OR ITS LICENSORS BE LIABLE FOR
+ * ANY LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT,
+ * SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER
+ * CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF
+ * THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF SUN HAS BEEN
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ *  
+ * You acknowledge that Software is not designed, licensed or 
+ * intended for use in the design, construction, operation or 
+ * maintenance of any nuclear facility.
+ */
+package ejemplo.hola;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface Hola extends Remote {
+    String diHola() throws RemoteException;
+}
+</code></pre>
+
+<h4>Servidor.java</h4>
+<pre><code>/*
+ * Copyright 2004 Sun Microsystems, Inc. All  Rights Reserved.
+ *  
+ * Redistribution and use in source and binary forms, with or 
+ * without modification, are permitted provided that the following 
+ * conditions are met:
+ * 
+ * -Redistributions of source code must retain the above copyright  
+ *  notice, this list of conditions and the following disclaimer.
+ * 
+ * -Redistribution in binary form must reproduce the above copyright 
+ *  notice, this list of conditions and the following disclaimer in 
+ *  the documentation and/or other materials provided with the 
+ *  distribution.
+ *  
+ * Neither the name of Sun Microsystems, Inc. or the names of 
+ * contributors may be used to endorse or promote products derived 
+ * from this software without specific prior written permission.
+ * 
+ * This software is provided "AS IS," without a warranty of any
+ * kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ * WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ * EXCLUDED. SUN MICROSYSTEMS, INC. ("SUN") AND ITS LICENSORS SHALL
+ * NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF
+ * USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS
+ * DERIVATIVES. IN NO EVENT WILL SUN OR ITS LICENSORS BE LIABLE FOR
+ * ANY LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT,
+ * SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER
+ * CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF
+ * THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF SUN HAS BEEN
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ *  
+ * You acknowledge that Software is not designed, licensed or 
+ * intended for use in the design, construction, operation or 
+ * maintenance of any nuclear facility.
+ */
+package ejemplo.hola;
+
+import java.rmi.registry.Registry;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
+public class Servidor implements Hola{
+
+ public Servidor() {}
+
+ public String diHola(){
+  return "Hola, mundo";
+ }
+
+ public static void main(String args[]){
+
+  try {
+   Servidor obj = new Servidor();
+   Hola stub = (Hola) UnicastRemoteObject.exportObject(obj, 0);
+
+   // Liga los datos (stub) del objeto remoto en el registro
+   Registry registro = LocateRegistry.getRegistry();
+   registro.bind("Hola",stub);
+
+   System.err.println("Servidor listo");
+  } catch (Exception e) {
+   System.err.println("Excepción del servidor: " + e.toString());
+   e.printStackTrace();
+  }
+ }
+}
+</code></pre>
+
+<h4>Cliente.java</h4>
+<pre><code>/*
+ * Copyright 2004 Sun Microsystems, Inc. All  Rights Reserved.
+ *  
+ * Redistribution and use in source and binary forms, with or 
+ * without modification, are permitted provided that the following 
+ * conditions are met:
+ * 
+ * -Redistributions of source code must retain the above copyright  
+ *  notice, this list of conditions and the following disclaimer.
+ * 
+ * -Redistribution in binary form must reproduce the above copyright 
+ *  notice, this list of conditions and the following disclaimer in 
+ *  the documentation and/or other materials provided with the 
+ *  distribution.
+ *  
+ * Neither the name of Sun Microsystems, Inc. or the names of 
+ * contributors may be used to endorse or promote products derived 
+ * from this software without specific prior written permission.
+ * 
+ * This software is provided "AS IS," without a warranty of any
+ * kind. ALL EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND
+ * WARRANTIES, INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT, ARE HEREBY
+ * EXCLUDED. SUN MICROSYSTEMS, INC. ("SUN") AND ITS LICENSORS SHALL
+ * NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF
+ * USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS
+ * DERIVATIVES. IN NO EVENT WILL SUN OR ITS LICENSORS BE LIABLE FOR
+ * ANY LOST REVENUE, PROFIT OR DATA, OR FOR DIRECT, INDIRECT,
+ * SPECIAL, CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER
+ * CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING OUT OF
+ * THE USE OF OR INABILITY TO USE THIS SOFTWARE, EVEN IF SUN HAS BEEN
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+ *  
+ * You acknowledge that Software is not designed, licensed or 
+ * intended for use in the design, construction, operation or 
+ * maintenance of any nuclear facility.
+ */
+package ejemplo.hola;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+public class Cliente {
+ 
+ private Cliente() {}
+ 
+ public static void main(String[] args){
+  
+  String host = (args.length &lt; 1) ? null : args[0];
+  try {
+   Registry registro = LocateRegistry.getRegistry(host);
+   Hola stub = (Hola) registro.lookup("Hola");
+   String respuesta = stub.diHola();
+   System.out.println("respuesta: " + respuesta);
+  } catch (Exception e) {
+   System.err.println("Exception del cliente: " + e.toString());
+   e.printStackTrace();
+  }
+    }
+}
+</code></pre>
+
+<h3>Cómo compilarlo y ejecutarlo</h3>
+<p><strong>Para compilarlo,</strong> sólo hay que ejecutar el comando usual:</p>
+<pre><code>javac -d <span title="aquí va el nombre del subdirectorio donde se guardarán las clases (debe existir previamente)" style="font-weight:bold;font-style:italic;">clases</span> Hola.java Servidor.java Cliente.java
+</code></pre>
+<p>El directorio donde se guardarán las clases (en este ejemplo llamado <span style="font-weight:bold;font-style:italic;">clases</span> debe existir previamente.</p>
+<p>El árbol con los archivos debería quedar como en la siguiente imagen:</p>
+<p class="img"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/rmi-ejemplo-tree.png" alt="Captura de pantalla del contenido de la carpeta del proyecto: 3 archivos .java más un subdirectorio ejemplo/hola/ con 3 archivos .class en él "><br>Repito. La carpeta <span style="font-weight:bold;font-style:italic;">clases</span> debe existir previamente.</p>
+
+<p><strong>Para ejecutar este ejemplo,</strong> se necesita hacer lo siguiente:</p>
+<ul><li>Iniciat el registro Java <acronym xml:lang="en-us" title="Remote Method Invocation">RMI</acronym></li>
+<li>Iniciar el servidor</li>
+<li>Ejecutar el cliente</li></ul>
+<h4>Iniciar el registro Java <acronym xml:lang="en-us" title="Remote Method Invocation">RMI</acronym></h4>
+<p>Para iniciar el registro, ejecuta el comando <code>rmiregistry</code> en el <em>host</em> del servidor.  Este comando no produce ningún mensaje de salida (cuando es satisfactorio) y típicamente corre en <span xml:lang="en-us">background</span>.  Para más informción, vea la documentación de las herramientas de <code>rmiregistry</code> [para<a href="http://java.sun.com/javase/6/docs/technotes/tools/solaris/rmiregistry.html" rel="external">Solaris</a>, <a href="http://java.sun.com/javase/6/docs/technotes/tools/windows/rmiregistry.html">Windows</a>].</p>
+<p>Por ejemplo, en Solaris™:</p>
+<pre><code>rmiregistry &amp;</code></pre>
+<p>En OS X con Java 5 por lo menos es igual que en Solaris pero sin el &amp;</p>
+<pre><code>rmiregistry</code></pre>
+<p>O, en la plataforma Windows:</p>
+<pre><code>start rmiregistry </code></pre>
+<p>Por defecto, el registro corre en el puerto <acronym xml:lang="en-us" title="Transmission Control Protocol">TCP</acronym> 1099. Para iniciar un registro en un puerto diferente, especifica el número de puerto desde la línea de comandos. Por ejemplo, para iniciar el registro en el puerto 2001 sobre la plataforma Windows:</p>
+<pre><code>start rmiregistry 2001</code></pre>
+<p>Si el registro estará ejecutándose en un puerto distinto del 1099, necesitarás especificar el número de puerto en las llamadas a <code>LocateRegistry.getRegistry</code> en las clases <code>Server</code> y <code>Client</code>. Por ejemplo, si el registro está ejecutándose sobre el puerto 2001 en este ejemplo, la llamada a <code>getRegistry</code> en el servidor sería:</p>
+<pre><code>Registry registry = LocateRegistry.getRegistry(2001);</code></pre>
+
+<h4>Iniciar el servidor</h4>
+<p>Para iniciar el servidor, ejecuta la clase <code>Servidor</code> usando el comando java siguiente:</p>
+<p>En Solaris:</p>
+<pre><code>java -classpath <span style="font-weight:bold;font-style:italic;">clases</span> -Djava.rmi.server.codebase=file:<span style="font-weight:bold;font-style:italic;">clases</span>/ ejemplo.hola.Servidor &amp;</code></pre>
+<p>En OS X:</p>
+<pre><code>java -classpath <span style="font-weight:bold;font-style:italic;">clases</span> -Djava.rmi.server.codebase=file:<span style="font-weight:bold;font-style:italic;">clases</span>/ ejemplo.hola.Servidor</code></pre>
+<p>Bajo la plataforma Windows:</p>
+<pre><code>start java -classpath <span style="font-weight:bold;font-style:italic;">clases</span> -Djava.rmi.server.codebase=file:<span style="font-weight:bold;font-style:italic;">clases</span>/ ejemplo.hola.Servidor</code></pre>
+<p>donde <span style="font-weight:bold;font-style:italic;">clases</span> es el directorio raíz del árbol de archivos de las clases (el mismo <span style="font-weight:bold;font-style:italic;">clases</span> de cuando fueron compilados los archivos fuentes). Definiendo la propiedad de sistema <code>java.rmi.server.codebase</code> asegura que el registro pueda cargar la definición de interfaz remota (ojo que el slash final es importante).</p>
+<p>La salida del servidor debería verse como esto:</p>
+<blockquote><pre>Servidor listo</pre></blockquote>
+<p>El servidor mantiene ejecutándose hasta que el proceso es terminado por el usuario (típicamente matando al proceso).</p>
+<h4>Ejecutar el cliente</h4>
+<p>Una vez que el servidor está listo, el cliente puede ser ejecutado de la siguiente forma:</p>
+<pre><code>java -classpath <span style="font-weight:bold;font-style:italic;">clases</span> ejemplo.hola.Cliente</code></pre>
+<p>donde <span style="font-weight:bold;font-style:italic;">clases</span> es el directorio raíz del árbol de archivos de las clases (el mismo <span style="font-weight:bold;font-style:italic;">clases</span> de cuando fueron compilados los archivos fuentes).</p>
+<p>La salida del cliente es el siguiente mensaje:</p>
+<blockquote><pre>respuesta: Hola, mundo
+</pre></blockquote>
+<h3>Referencias</h3>
+<ul xml:lang="en-us"><li><a href="http://java.sun.com/javase/6/docs/technotes/guides/rmi/hello/hello-world.html" rel="external">Getting Started Using Java™ <acronym title="Remote Method Invocation">RMI</acronym></a></li>
+<li><a href="http://java.sun.com/javase/6/docs/technotes/guides/rmi/index.html" rel="external">Java Remote Method Invocation (Java <acronym title="Remote Method Invocation">RMI</acronym>)</a></li></ul><div style="clear:both; padding-bottom:0.25em"></div><p class="blogger-labels">Etiquetas: <a rel="tag" href="http://www.ooscarr.com/nerd/elblog/labels/codigo.php">codigo</a>, <a rel="tag" href="http://www.ooscarr.com/nerd/elblog/labels/sun.php">sun</a></p>
+			<p class="postmetadata">
+				<a href="./ElBlog  Ejemplo oficial de RMI en Java_files/ElBlog  Ejemplo oficial de RMI en Java.htm" title="permanent link">18.11.08</a>.			
+				
+				
+			</p>
+		</div>
+
+	</div><div id="comments">	<h3>3 comentarios (<a href="http://www.blogger.com/feeds/6465577696340041904/4176402842310147267/comments/default?alt=rss" title="RSS 2.0"><acronym xml:lang="en" title="Really Simple Syndication">RSS</acronym></a> <a href="http://www.blogger.com/feeds/6465577696340041904/4176402842310147267/comments/default" title="ATOM 1.0"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/feed.png" alt="ATOM"></a>) :</h3>
+    <ol>
+		<li><h4 id="c4729960022845253579">A las 
+    <a class="comment-data-link" href="http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php#c4729960022845253579" title="comment permalink"> 4/5/09 09:36 </a> <span class="item-control blog-admin"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=6465577696340041904&postID=4729960022845253579" title="Suprimir comentario"><span class="delete-comment-icon">&nbsp;</span></a></span></h4>
+			<div class="quien"><span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/anon16-rounded.gif" alt="Anonymous" style="display:inline;"></span>&nbsp;<span class="anon-comment-author">Anónimo</span> ha dicho...</div>
+			<div><p>mu bien 
+			</p></div></li>
+		<li><h4 id="c4761517999675906974">A las 
+    <a class="comment-data-link" href="http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php#c4761517999675906974" title="comment permalink"> 10/9/09 22:54 </a> <span class="item-control blog-admin"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=6465577696340041904&postID=4761517999675906974" title="Suprimir comentario"><span class="delete-comment-icon">&nbsp;</span></a></span></h4>
+			<div class="quien"><span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/anon16-rounded.gif" alt="Anonymous" style="display:inline;"></span>&nbsp;<span class="anon-comment-author">Anónimo</span> ha dicho...</div>
+			<div><p>como se ejecuta en dos maquinas? 
+			</p></div></li>
+		<li><h4 id="c8570316112303648134">A las 
+    <a class="comment-data-link" href="http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php#c8570316112303648134" title="comment permalink"> 10/9/09 23:08 </a> <span class="item-control blog-admin"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=6465577696340041904&postID=8570316112303648134" title="Suprimir comentario"><span class="delete-comment-icon">&nbsp;</span></a></span></h4>
+			<div class="quien"><span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/b16-rounded.gif" alt="Blogger" style="display:inline;"></span>&nbsp;<a href="http://www.blogger.com/profile/10725957830613872608" rel="nofollow">ooscarr</a> ha dicho...</div>
+			<div><p>De acuerdo al código fuente, al momento de ejecutar el cliente se le agrega un argumento con la IP del servidor. No lo he probado. Podría ser así<br><br>java -classpath clases ejemplo.hola.Cliente 110.etc.23.etc 
+			</p></div></li>
+	</ol>
+	<div id="comment-form">
+		<!--[if !IE]> <--><div style="text-align:center;">
+		<object id="comment-editor" type="text/html" data="http://www.blogger.com/comment-iframe.g?blogID=6465577696340041904&postID=4176402842310147267" width="450" height="300" style="margin:auto;"><!----> <!--[endif]---->
+				<p class="comentar"><a class="comment-link" href="http://www.blogger.com/comment.g?blogID=6465577696340041904&postID=4176402842310147267">Dejar un comentario</a></p>
+		<!--[if !IE]> <--></object></div><!----> <!--[endif]---->
+	</div>
+    
+	<h3 id="links">Referencias a este artículo:</h3>
+	<p class="comentar social"><a href="http://del.icio.us/post?url=http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php" title="Guárdalo en del.icio.us" rel="external"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/delicious.gif" style="height:16px;width:16px;" alt="del.icio.us"></a>
+		<a class="comment-link" href="http://www.blogger.com/blog-this.g?t=&u=http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php&n=Ejemplo%20oficial%20de%20RMI%20en%20Java" id="b-backlink" title="Publícalo en tu Blogger" rel="external"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/b16-rounded.gif" style="height:16px;width:16px;" alt="Blogger"></a>
+		<a href="http://www.facebook.com/sharer.php?u=http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php&t=Ejemplo%20oficial%20de%20RMI%20en%20Java" title="Compártelo en Facebook" rel="external"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/facebook.png" style="height:16px;width:16px;" alt="Facebook"></a>
+		<a href="http://www.blogger.com/email-post.g?blogID=6465577696340041904&postID=4176402842310147267" title="Envía este artículo por e-mail"><img alt="E-mail" src="./ElBlog  Ejemplo oficial de RMI en Java_files/icon18_email.gif" style="width:16px;"></a>
+		<a href="http://digg.com/submit?url=http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php&title=Ejemplo+oficial+de+RMI+en+Java" title="Digg it" rel="external"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/16x16-digg-guy.png" style="height:16px;width:16px;" alt="Digg"></a>
+		<a href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php&title=Ejemplo+oficial+de+RMI+en+Java" title="Agrégalo a tus favoritos en Google"><img alt="Google" src="./ElBlog  Ejemplo oficial de RMI en Java_files/google-icono.gif" style="width:16px;"></a>
+		<a href="http://bookmarks.yahoo.com/toolbar/savebm/?u=http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php&t=Ejemplo%20oficial%20de%20RMI%20en%20Java" title="Agrégalo a tus favoritos en Yahoo!"><img alt="Yahoo!" src="./ElBlog  Ejemplo oficial de RMI en Java_files/yahoobookmark.png" style="width:16px;"></a>
+		<a href="http://buzz.yahoo.com/article/pub/http%3A%2F%2Fwww.ooscarr.com%2Fnerd%2Felblog%2F2008%2F11%2Fejemplo-oficial-de-hola-mundo-con-rmi.php" title="Buzz up en Yahoo!"><img alt="buzz" src="./ElBlog  Ejemplo oficial de RMI en Java_files/buzz.png" style="width:16px;"></a>
+		<a href="http://friendfeed.com/?url=http://www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php&title=Ejemplo%20oficial%20de%20RMI%20en%20Java" title="Avísale a tus amigos de friendfeed"><img alt="friendfeed" src="./ElBlog  Ejemplo oficial de RMI en Java_files/internal.png" style="width:16px;"></a>
+	</p>
+
+	<p style="text-align:center;"><a href="http://www.ooscarr.com/nerd/elblog/index.php">Página principal</a></p>
+    </div>
+
+
+    <!-- End #comments -->
+
+    <script type="text/javascript" src="./ElBlog  Ejemplo oficial de RMI en Java_files/2844496769-csitaillib.js"></script>
+<script>if (typeof(window.attachCsiOnload) != 'undefined' && window.attachCsiOnload != null) { window.attachCsiOnload('ext_blogspot'); }</script>
+    <!-- End main column -->
+<div class="publicidad"><h3>Publicidad</h3>
+			<script type="text/javascript"><!--//--><![CDATA[//><!--
+				google_ad_client = "pub-7448546992120998";
+google_ad_host = "pub-1556223355139109";
+				/* Pie de ElBlog */
+				google_ad_slot = "1338749889";
+				google_ad_width = 468;
+				google_ad_height = 60;
+				//--><!]]></script><script type="text/javascript" src="./ElBlog  Ejemplo oficial de RMI en Java_files/show_ads.js"></script><ins style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><ins id="aswift_1_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px"><iframe allowtransparency="true" frameborder="0" height="60" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+=&#39;.call&#39;;setTimeout(h,0)}else if(h.match){i+=&#39;.nav&#39;;w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" scrolling="no" vspace="0" width="468" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</div>	
+	</div>
+
+
+<div id="sidebar">
+	<h2>Más</h2>
+	<div class="seccion discreta"><h3>Buscar</h3>
+		<form action="http://www.ooscarr.com/nerd/elblog/resultados.php" id="cse-search-box"><div>
+
+			<input type="hidden" name="cx" value="partner-pub-7448546992120998:in0arx3kl07">
+			<input type="hidden" name="cof" value="FORID:11">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="text" name="q" size="15" style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(126, 157, 185); border-right-color: rgb(126, 157, 185); border-bottom-color: rgb(126, 157, 185); border-left-color: rgb(126, 157, 185); border-image: initial; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px; background-image: url(http://www.google.com/cse/intl/es/images/google_custom_search_watermark.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); background-position: 0% 50%; background-repeat: no-repeat no-repeat; ">
+			<button type="submit">Buscar</button>
+		</div><input name="siteurl" type="hidden" value="www.ooscarr.com/nerd/elblog/2008/11/ejemplo-oficial-de-hola-mundo-con-rmi.php"><input name="ref" type="hidden" value="www.google.com.mx/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=4&amp;sqi=2&amp;ved=0CDsQFjAD&amp;url=http%3A%2F%2Fwww.ooscarr.com%2Fnerd%2Felblog%2F2008%2F11%2Fejemplo-oficial-de-hola-mundo-con-rmi.php&amp;ei=_tOZT6nqFOiE2QWK-cWMBw&amp;usg=AFQjCNF8qXXB1yjWzkANzSp5vfIv2vgzbA&amp;sig2=2lLoUcyxSOhO6xzvmWJvxw"></form>
+		<script type="text/javascript" src="./ElBlog  Ejemplo oficial de RMI en Java_files/brand"></script>
+	</div><a href="http://feedproxy.google.com/ooscarr/nerd/elblog" title="Suscríbete al feed XML" rel="alternate"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/feed-icon32x32.png" alt="XML" style="float:right;margin:auto 25px auto auto;"></a>
+	
+	<div class="seccion"><h3>¿Qué es ésto?</h3>
+	<p>Esto es un blog escrito por un tal <strong>Oscar</strong> desde Iquique (Chile), para compartir y comunicarse con el resto de la comunidad de Internet. También escribo opiniones y HOW-TOs a pedido.</p>
+	</div>
+
+	<div class="seccion"><h3>Artículos anteriores</h3>
+	<ul>		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/11/3-servidores-1-cliente-y-1-coordinador.php">3 Servidores 1 Cliente y 1 Coordinador por UDP con...</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/11/mi-sombra-dentro-de-un-arcoiris.php">Mi sombra dentro de un arcoiris completo</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/11/dnde-est-configurar-pgina-en-el.php">Configurar página en OpenOffice.org</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/10/n.php">Tip: números de página en OpenOffice.org Writer</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/10/clienteservidor-mediante-sockets-con.php">Cliente/Servidor por UDP con búfer en java</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/10/3-servidore-1-cliente-y-1-proxy.php">3 Servidores 1 Cliente y 1 Coordinador con sockets...</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/10/3-servidore-1-cliente-con-sockets-en.php">3 Servidores 1 Cliente con sockets en Java</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/10/clienteservidor-mediante-sockets-en.php">Cliente/Servidor mediante sockets sin búfer por TC...</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/10/ejemplo-de-polimorfismo-en-java.php">Ejemplo de sobrecarga de métodos en java (creo)</a></li>
+		<li><a href="http://www.ooscarr.com/nerd/elblog/2008/10/lo-que-google-piensa-de-mi.php">Lo que Google piensa de mi</a></li>
+</ul>
+	</div>
+
+	<div class="seccion"><h3>Categorías</h3>    <a href="http://www.ooscarr.com/nerd/elblog/labels/OOo.php" rel="tag">OOo</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/cielo.php" rel="tag">Cielo</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/codigo.php" rel="tag">Codigo</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/cotizaciones.php" rel="tag">Cotizaciones</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/css.php" rel="tag">Css</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/eco.php" rel="tag">Eco</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/error_log" rel="tag">Error_log</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/firefox.php" rel="tag">Firefox</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/fisica.php" rel="tag">Fisica</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/flickr.php" rel="tag">Flickr</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/google.php" rel="tag">Google</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/guliqq.php" rel="tag">Guliqq</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/ie.php" rel="tag">Ie</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/javascript.php" rel="tag">Javascript</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/mac.php" rel="tag">Mac</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/musica.php" rel="tag">Musica</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/mysql.php" rel="tag">Mysql</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/netbeans.php" rel="tag">Netbeans</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/oracle.php" rel="tag">Oracle</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/postgresql.php" rel="tag">Postgresql</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/redes.php" rel="tag">Redes</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/software.php" rel="tag">Software</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/sun.php" rel="tag">Sun</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/tip.php" rel="tag">Tip</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/tramites.php" rel="tag">Tramites</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/tutorial.php" rel="tag">Tutorial</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/unix.php" rel="tag">Unix</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/video.php" rel="tag">Video</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/windows.php" rel="tag">Windows</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/xhtml.php" rel="tag">Xhtml</a>
+    <a href="http://www.ooscarr.com/nerd/elblog/labels/xml.php" rel="tag">Xml</a>
+	</div>
+	
+	
+	
+	<div class="seccion"><h3><a href="http://www.flickr.com/photos/ooscarr/" rel="external">Flick<span style="color:#ff1c92;">r</span></a></h3>
+		<div id="flickr_badge_uber_wrapper"><script type="text/javascript" src="./ElBlog  Ejemplo oficial de RMI en Java_files/badge_code_v2.gne"></script><div class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/ooscarr/6888599210/"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/6888599210_003aff0515_s.jpg" alt="A photo on Flickr" title="Domingo de ramos-palooza-fools" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/ooscarr/6351067537/"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/6351067537_7c7b538580_s.jpg" alt="A photo on Flickr" title="A la pieza que arrendábamos se le cayó el techo de cholguán" height="75" width="75"></a></div><span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/p" width="0" height="0" alt=""></span>
+		<noscript>&lt;p&gt;&lt;a href="http://www.flickr.com" id="flickr_www" rel="external"&gt;www.&lt;strong style="color:#3993ff"&gt;flick&lt;span style="color:#ff1c92"&gt;r&lt;/span&gt;&lt;/strong&gt;.com&lt;/a&gt;&lt;/p&gt;</noscript></div>
+	</div>
+
+	
+
+
+	<!--<div class="seccion"><h3>Publicidad</h3><img src="http://rcm-images.amazon.com/images/G/01/green/ads/green-lighting_125x125.gif" alt="Vuélvete verde" width="125" usemap="#180x150_2.gif" id="MercadoLibreSidebar" /><map name="180x150_2.gif" id="MercadoLibreSidebarLinks"><area shape="rect" coords="25, 113, 115, 125" href="http://rcm.amazon.com/e/cm/privacy-policy.html?o=1" alt="Vuélvete verde" /><area shape="rect" coords="0,0,10000,10000" href="http://www.amazon.com/b?node=394379011&amp;tag=on053-20&amp;camp=213281&amp;creative=386457&amp;linkCode=ur1&amp;adid=1B09SEQF1655TRQJ2BP5&amp;" alt="Amazon.com" /></map></div>-->
+
+	<!--<div class="seccion"><h3>Publicidad</h3><a href="http://mariomarathon.com/" rel="external" xml:lang="en-us"><img src="http://www.childsplaycharity.org/img/cp_nodate.gif" alt="Super Mario Marathon" width="170" /></a></div>-->
+
+
+	<div class="seccion" id="powered-by"><a href="http://www.blogger.com/"><img src="./ElBlog  Ejemplo oficial de RMI en Java_files/blogger-powerby-blue.gif" alt="Powered by Blogger"></a></div>
+	
+</div><div id="footer">
+<p>Copyright © 2009 Oscar Fernández</p>
+</div>
+
+
+<!-- End wrapper -->
+</div>
+
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+//--><!]]></script><script src="./ElBlog  Ejemplo oficial de RMI en Java_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+var pageTracker = _gat._getTracker("UA-74856-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+//--><!]]></script>
+<script type="text/javascript" src="http://track.mybloglog.com/js/jsserv.php?mblID=2008072507210054"></script>
+</body></html>

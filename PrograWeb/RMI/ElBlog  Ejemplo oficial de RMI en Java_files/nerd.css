@@ -1,0 +1,126 @@
+html,body{
+	width:100%;
+	margin:0; 
+	padding:0;
+	text-align:center;
+	color:#dcdcdc;
+}
+html{
+	background:#000000 url(nerd/fondo-nerd.png) repeat;
+}
+
+a img{color:#000;}		/*hide border Netscape 4*/
+@media all{				/*hide from Netscape 4*/
+	a img,area{
+		color:inherit;	/*undo the rule above*/
+		border:none;	/*hide from Netscape 4*/
+		vertical-align:bottom;
+	}
+}
+a{color:#fff;}
+a:visited{color:#dcdcdc;}
+
+#cross-site{
+	clear:both;
+	text-align:left;
+	margin:4px auto;
+}
+#cross-site ul,#cross-site ul li{
+	display:inline;
+	margin:0;
+	padding:0;
+}
+#cross-site ul li{
+	padding:0 6px;
+	border-left:1px solid #dcdcdc;
+}
+#cross-site ul li:first-child{
+	border:none;
+}
+#cross-site ul li a,#cross-site ul li a:visited{
+	text-decoration:underline;
+}
+#cabecera{
+	width:100%;
+	margin:0;
+	padding:9px 0 0 0;
+	text-align:center;
+	background:#000000 url(nerd/fondo-cuadros.png) repeat;
+}
+#cabecera .banner{
+	display:inline;
+	width:468px;
+	height:60px;
+	text-align:center;
+	margin:auto auto auto 157px;
+}
+#cabecera .banner noscript div{
+	display:inline;
+}
+#cabecera .banner img{
+	height:60px;
+	width:468px;
+}
+#cabecera .menu{			/*MENU*/
+	margin:8px 0 0 0;
+	padding:0;
+	border-top:1px solid #008000;
+	border-bottom:1px solid #008000;
+	text-transform:uppercase;
+	font-size:smaller;
+	font-weight:bold;
+	text-align:center;
+	font-family:serif;
+}
+#cabecera .menu ul{margin:0;padding:0;background: #3a3a3a;}
+#cabecera .menu ul li{
+	margin:0;
+	padding:0;
+	border-collapse:collapse;
+	display:inline;
+}
+#cabecera .menu ul li img{vertical-align:top;}
+#cabecera .menu ul li a,#cabecera .menu ul li a:visited{
+	border-left:1px solid #008000;
+	border-right:1px solid #008000;
+	padding:1px 6px;
+	color:#dcdcdc;
+	text-decoration:none;
+}
+#cabecera .menu ul li a:hover,#cabecera .menu ul li a:visited:hover{color:#ffffff;background:#008000;}
+#cabecera .menu ul li.home{
+	display:block;
+	float:left;
+	margin:-70px -157px 0 0;
+	border:0;
+	height:58px;
+	width:157px;
+	padding:0;
+	background:transparent url(../img/logo.gif) no-repeat 100% 0;
+}
+#cabecera .menu ul li.home a{
+    display: block;
+	height:58px;
+	width:157px;
+	margin:0;
+	padding:0;
+	text-align:left;
+	text-decoration:none;
+	text-transform:uppercase;
+	text-indent:-4em;
+}
+#cabecera .menu ul li.home a:hover{
+	background:transparent;
+}
+#cabecera .menu ul li.elblog{
+	text-transform:none;
+}
+
+
+/* object stuff here */
+/* hides the second object from all versions of IE */
+* html object.obj{display:none;}
+/* displays the second object in all versions of IE apart from 5 on PC */
+* html object.obj/**/{display:inline;}
+/* hides the second object from all versions of IE >= 5.5 */
+* html object.obj{display/**/:none;}

@@ -1,0 +1,3 @@
+grant codeBase "C:\Users\Skeleton\Desktop\RMI" {
+    permission java.security.AllPermission;
+};

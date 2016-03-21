@@ -1,0 +1,15 @@
+var b_txt = '';
+
+// write the badge
+	
+	
+		 	 		
+	b_txt+= '<div class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/ooscarr/6888599210/"><img src="http://farm8.staticflickr.com/7087/6888599210_003aff0515_s.jpg" alt="A photo on Flickr" title="Domingo de ramos-palooza-fools" height="75" width="75"></a></div>';
+	
+		 	 		
+	b_txt+= '<div class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/ooscarr/6060781435/"><img src="http://farm7.staticflickr.com/6190/6060781435_ce8ac6b231_s.jpg" alt="A photo on Flickr" title="Vinimos a la Universidad de Atacama (UDA)" height="75" width="75"></a></div>';
+
+
+b_txt += '<span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="http://geo.yahoo.com/p?s=792600102&t=943686f228194f086a8b16b036a18f18&fl_ev=0&lang=en&intl=mx" width="0" height="0" alt="" /></span>';
+
+document.write(b_txt);

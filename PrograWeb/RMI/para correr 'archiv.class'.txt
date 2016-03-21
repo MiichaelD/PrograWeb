@@ -1,0 +1,13 @@
+	se crea un archivo qe termine en .bat con el siguiente contenido sin comillas:
+
+"@echo off
+
+java nombreClase"
+
+
+	como crear un jar:
+
+
+jar cvf nombrejar.jar classpath\clase.class
+o
+jar cvf nombrejar.jar classpath\*.class
